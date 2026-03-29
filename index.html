@@ -1,5 +1,4 @@
-
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,7 +15,6 @@ body {
     color: white;
 }
 
-/* Title */
 h1 {
     margin-top: 30px;
     font-size: 2.5em;
@@ -28,7 +26,6 @@ h1 {
     to { text-shadow: 0 0 30px yellow; }
 }
 
-/* Slideshow Container */
 .slideshow {
     width: 90%;
     max-width: 320px;
@@ -40,7 +37,7 @@ h1 {
     box-shadow: 0 0 25px rgba(0,0,0,0.5);
 }
 
-/* Slides (background images) */
+/* IMPORTANT FIX */
 .slide {
     position: absolute;
     width: 100%;
@@ -48,17 +45,16 @@ h1 {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-color: #000; /* fallback if image fails */
     opacity: 0;
     transition: opacity 1s ease-in-out, transform 3s ease;
 }
 
-/* Active Slide */
 .slide.active {
     opacity: 1;
     transform: scale(1.05);
 }
 
-/* Message */
 #message {
     font-size: 1.3em;
     width: 85%;
@@ -66,7 +62,6 @@ h1 {
     min-height: 120px;
 }
 
-/* Button */
 button {
     margin-top: 20px;
     padding: 12px 25px;
@@ -76,7 +71,6 @@ button {
     background: white;
     color: #ff4d6d;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 button:hover {
@@ -84,7 +78,6 @@ button:hover {
     color: white;
 }
 
-/* Floating Hearts */
 .heart {
     position: fixed;
     color: red;
@@ -104,10 +97,10 @@ button:hover {
 <h1>Happy Birthday AISHA ❤️</h1>
 
 <div class="slideshow">
-    <div class="slide active" style="background-image: url('IMG_20260118_170019_568.webp')"></div>
-    <div class="slide" style="background-image: url('IMG-20260118-WA0047.jpg')"></div>
-    <div class="slide" style="background-image: url('IMG_20260103_200835.jpg')"></div>
-    <div class="slide" style="background-image: url('IMG_20260118_165942_468.webp')"></div>
+    <div class="slide active" style="background-image: url('./IMG_20260118_170019_568.webp')"></div>
+    <div class="slide" style="background-image: url('./IMG-20260118-WA0047.jpg')"></div>
+    <div class="slide" style="background-image: url('./IMG_20260103_200835.jpg')"></div>
+    <div class="slide" style="background-image: url('./IMG_20260118_165942_468.webp')"></div>
 </div>
 
 <div id="message"></div>
@@ -115,7 +108,7 @@ button:hover {
 <button onclick="surprise()">Click for Surprise 🎁</button>
 
 <audio autoplay loop>
-    <source src=Kesariya Brahmastra 128 Kbps.mp3 type="audio/mp3">
+    <source src="Kesariya Brahmastra 128 Kbps.mp3" type="audio/mp3">
 </audio>
 
 <script>
@@ -142,7 +135,6 @@ function typeWriter() {
 }
 typeWriter();
 
-/* Slideshow Logic */
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 
@@ -152,12 +144,10 @@ setInterval(() => {
     slides[index].classList.add("active");
 }, 3000);
 
-/* Surprise */
 function surprise() {
     alert(`${herName}, I LOVE YOU SO MUCH ❤️\nYou are my everything 💕`);
 }
 
-/* Floating Hearts */
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
